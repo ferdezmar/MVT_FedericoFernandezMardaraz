@@ -25,5 +25,7 @@ urlpatterns = [
     path('mi-template/', views.mi_template),
     path('mi-template/<str:nombre>', views.tu_template),
     path('prueba-template/', views.prueba_template),
-    
+    path('ver-familiar/', views.ver_familiares),
+    path('crear-familiar/<str:nombre>/<str:apellido>/', views.crear_familiar),
+         
     ]

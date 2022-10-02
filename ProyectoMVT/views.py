@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.template import Context, Template, loader
 import random
+from home.models import Persona
 
 def saludo(request):
     return HttpResponse ('<h1> Buenas y santas </h1>')
@@ -43,4 +44,23 @@ def prueba_template(request):
     template = loader.get_template('prueba_template.html')
     template_renderizado = template.render(mi_contexto)
         
+    return HttpResponse(template_renderizado)
+
+def crear_familiar(request, nombre, apellido):
+    
+    familiar = Persona(nombre=nombre, apellido=apellido, edad=random.randrange(1,99), fecha_nacimiento=datetime.now()),
+    familiar.save()
+    
+    template = loader.get_template('crear_familiar.html')
+    template_renderizado = template.render({'familiar': familiar})
+    
+    return HttpResponse(template_renderizado)
+
+def ver_familiares(request):
+    
+    familiares = Persona.objects.all()
+    
+    template = loader.get_template('ver_familiares.html')
+    template_renderizado = template.render({'familiares': familiares})
+              
     return HttpResponse(template_renderizado)
