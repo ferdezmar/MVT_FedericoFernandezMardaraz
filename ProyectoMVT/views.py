@@ -48,7 +48,7 @@ from home.models import Persona
 
 def crear_familiar(request, nombre, apellido):
     
-    familiar = Persona(nombre=nombre, apellido=apellido, edad=random.randrange(1,99), fecha_nacimiento=datetime.now()),
+    familiar = Persona(nombre=nombre, apellido=apellido, edad=random.randrange(1,99), fecha_nacimiento=datetime.now())
     familiar.save()
     
     template = loader.get_template('crear_familiar.html')
