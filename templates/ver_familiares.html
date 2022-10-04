@@ -9,7 +9,9 @@
 <body>
     <p> Listado de familiares </p>
     {% for familiar in familiares %}
-        <li>{{familiar.nombre}} {{familiar.apellido}} {{familiar.edad}}</li>    
+        <li><p> Familiar: {{familiar.nombre}} {{familiar.apellido}}</p> 
+        <p>Edad: {{familiar.edad}}</p> 
+        <p>Fecha de creación: {{familiar.fecha_nacimiento}} </p></li>    
     {% endfor %}
 
 
